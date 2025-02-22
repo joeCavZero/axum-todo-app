@@ -10,7 +10,6 @@ pub async fn normalize_trailing_slash( req: Request<Body>, next: Next ) -> Respo
      */
     
     let path = req.uri().path().to_string();
-    println!("entering middleware: {}", path);
     if path == "/" {
         next.run(req).await
     } else if path.ends_with('/') {
@@ -19,15 +18,4 @@ pub async fn normalize_trailing_slash( req: Request<Body>, next: Next ) -> Respo
     } else {
         next.run(req).await
     }
-    /*
-        This is another way to do the normalization,
-        but the .route paths must have the trailing slash
-        at the end of the 'path string'.
-    if path.ends_with('/') || path == "/" {
-        next.run(req).await
-    } else {
-        let new_path = format!("{}/", path);
-        Redirect::permanent(new_path.as_str()).into_response()
-    }
-    */
 }
