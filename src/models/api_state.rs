@@ -1,15 +1,6 @@
-use std::sync::Arc;
-
-use tokio::sync::Mutex;
-
-use super::Task;
-
 #[derive(Clone)]
 pub struct ApiState {
-    pub tasks: Arc<Mutex<Vec<Task>>>,
-    pub id_counter: Arc<Mutex<usize>>,
     pub database_connection_pool: sqlx::postgres::PgPool,
-
 }
 impl ApiState {
     pub async fn new() -> Self {
@@ -32,8 +23,6 @@ impl ApiState {
 
 
         ApiState {
-            tasks: Arc::new( Mutex::new( Vec::new() )),
-            id_counter: Arc::new(Mutex::new(0)),
             database_connection_pool: conn_pool,
         }
     }
