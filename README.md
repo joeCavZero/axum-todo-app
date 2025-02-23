@@ -1,49 +1,48 @@
 # Todo List
 
-Este é um projeto de um gerenciador de tarefas simples, desenvolvido em Rust utilizando Axum e outras bibliotecas auxiliares. O projeto permite adicionar, buscar, atualizar e deletar tarefas.
-
+This is a simple task manager project, developed in Rust using Axum and other auxiliary libraries. The project allows adding, fetching, updating, and deleting tasks.
 
 <div align="center"><img src="readme_assets/00.png" width="400%"></div>
 
-## Funcionalidades
+## Features
 
-- Adicionar uma nova tarefa
-- Listar todas as tarefas
-- Buscar uma tarefa por ID
-- Atualizar uma tarefa existente
-- Deletar uma tarefa
+- Add a new task
+- List all tasks
+- Fetch a task by ID
+- Update an existing task
+- Delete a task
 
 <div align="center"><img src="readme_assets/01.png" width="400%"></div>
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **Rust**: Linguagem de programação utilizada para desenvolver o projeto.
-- **Axum**: Framework web utilizado para construir a API.
-- **SQLx**: Biblioteca para interagir com o banco de dados PostgreSQL.
-- **Tera**: Motor de templates utilizado para renderizar as páginas HTML.
-- **Tokio**: Runtime assíncrona utilizada para executar o servidor.
+- **Rust**: Programming language used to develop the project.
+- **Axum**: Web framework used to build the API.
+- **SQLx**: Library to interact with the PostgreSQL database.
+- **Tera**: Template engine used to render HTML pages.
+- **Tokio**: Asynchronous runtime used to run the server.
 
 <div align="center"><img src="readme_assets/02.png" width="400%"></div>
 
-## Configuração
+## Setup
 
-1. Clone o repositório:
+1. Clone the repository:
     ```sh
-    git clone https://github.com/seu-usuario/todo-list.git
+    git clone https://github.com/your-username/todo-list.git
     cd todo-list
     ```
 
-2. Configure o banco de dados PostgreSQL no arquivo [.env](http://_vscodecontentref_/3):
+2. Configure the PostgreSQL database in the [.env](http://_vscodecontentref_/3) file:
     ```properties
-    DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
+    DATABASE_URL=postgresql://user:password@localhost:5432/database_name
     ```
 
-3. Instale as dependências e compile o projeto:
+3. Install dependencies and compile the project:
     ```sh
     cargo build
     ```
 
-4. Execute o servidor:
+4. Run the server:
     ```sh
     cargo run
     ```
@@ -52,9 +51,9 @@ Este é um projeto de um gerenciador de tarefas simples, desenvolvido em Rust ut
 
 ## Endpoints
 
-- `GET /todos`: Lista todas as tarefas.
-- `POST /todos`: Adiciona uma nova tarefa.
-- `GET /todos/{id}`: Busca uma tarefa por ID.
-- `PUT /todos/{id}`: Atualiza uma tarefa por ID.
-- `PATCH /todos/{id}`: Atualiza parcialmente uma tarefa por ID.
-- `DELETE /todos/{id}`: Deleta uma tarefa por ID.
+- `GET /todos`: List all tasks.
+- `POST /todos`: Add a new task.
+- `GET /todos/{id}`: Fetch a task by ID.
+- `PUT /todos/{id}`: Update a task by ID.
+- `PATCH /todos/{id}`: Partially update a task by ID.
+- `DELETE /todos/{id}`: Delete a task by ID.
