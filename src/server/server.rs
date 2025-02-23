@@ -1,8 +1,9 @@
 use crate::routes;
 
 pub async fn init(address: &str, port: u16) -> Result<(), String > {
+    dotenvy::dotenv().unwrap();
 
-    let main_router = routes::main_route();
+    let main_router = routes::main_route().await;
     match tokio::net::TcpListener::bind(format!("{}:{}", address, port)).await {
         Ok(listener) => {
             match axum::serve(listener, main_router).await {

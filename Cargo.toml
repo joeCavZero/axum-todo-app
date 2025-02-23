@@ -11,3 +11,6 @@ tower = { version="0.5.2", features = ["full"] }
 tower-layer = "0.3.3"
 tower-http = { version= "0.6.2", features = ["fs", "trace"] }
 tera = "1.20.0"
+
+sqlx = { version = "0.8.3", features = ["postgres", "runtime-tokio-rustls"] }
+dotenvy = "0.15.7"
