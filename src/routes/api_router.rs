@@ -1,5 +1,5 @@
 
-use axum::{extract::{Path, State}, http::StatusCode, routing::get, Json, Router};
+use axum::{extract::{Path, State}, http::StatusCode, middleware, routing::get, Json, Router};
 use sqlx::Row;
 
 use crate::models::*;
@@ -19,6 +19,7 @@ pub async fn api_route() -> Router {
             .patch(patch_todo_by_id)
             .delete(delete_todo_by_id)
         )
+        .layer( middleware::from_fn( crate::middlewares::api_access_logger ) )
         .with_state( api_state )
 }
 

@@ -1,4 +1,4 @@
-use axum::{extract::State, response::{Html, IntoResponse}, routing::get, Router};
+use axum::{extract::State, middleware, response::{Html, IntoResponse}, routing::get, Router};
 
 #[derive(Clone)]
 #[allow(dead_code)]
@@ -16,6 +16,7 @@ pub fn web_router() -> Router {
         .route("/search", get(search_task))
         .route("/update", get(update_task))
         .route("/delete", get(delete_task))
+        .layer( middleware::from_fn( crate::middlewares::web_access_logger ) )
         .with_state( web_state )
 }
 

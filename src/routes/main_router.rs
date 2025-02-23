@@ -11,5 +11,4 @@ pub async fn main_route() -> axum::Router {
         .merge( web_router() )
         .nest_service("/static", ServeDir::new("./static") )
         .layer( middleware::from_fn( crate::middlewares::normalize_trailing_slash ) )
-
 }
