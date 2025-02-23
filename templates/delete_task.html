@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "includes/head.html" %}
+<body>
+    
+    {% include "includes/header.html" %}
+    <main>
+        <h2>DELETE TASK</h2>
+        <div id="delete-task-form" class="task-form">
+            <label for="task-id">ID:</label>
+            <input type="number" id="task-id" name="id" required>
+            <button id="delete-task-button">UPDATE TASK</button>
+        </div>
+        <script src="/static/scripts/delete.js"></script>
+    </main>
+    
+</body>
+</html>

@@ -88,9 +88,22 @@ async fn patch_todo_by_id( State(api_state): State<ApiState>, Path(param_id): Pa
 }
 
 async fn delete_todo_by_id( State(api_state): State<ApiState>, Path(param_id): Path<usize>) -> Result<Json<Task>, StatusCode> {
-    for (task_index, todo_task) in api_state.tasks.lock().await.iter_mut().enumerate() {
+    /*
+     * Antes eu fiz 2 lock().await, mas estava causando um deadlock.
+     * Por isso, eu fiz um lock().await e armazenei o valor em uma variável.
+     * Agora funciona sem problemas.
+     * 
+     * Um deadlock ocorre quando um processo espera por um recurso que está sendo usado por outro processo,
+     * que por sua vez está esperando pelo primeiro processo.
+     * No caso, o segundo lock() estava esperando o primeiro lock() ser liberado, mas o primeiro lock() não seria liberado,
+     * pois o primeiro lock() fazia parte do loop for, que obviamente não seria finalizado ali.
+     */
+    
+    let mut tasks = api_state.tasks.lock().await;
+    for (task_index, todo_task) in tasks.iter_mut().enumerate() {
         if todo_task.id == param_id {
-            return Ok( Json( api_state.tasks.lock().await.remove(task_index)));
+            let task_deleted = tasks.remove(task_index);
+            return Ok( Json( task_deleted ) );
         }
     }
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "includes/head.html" %}
+<body class="center_containers">
+    {% include "includes/header.html" %}
+    <main>
+        <h2>ALL TASKS</h2>
+        <p style="text-align: center;">Click on the button below to reload all tasks.</p>
+        <div class="buttons">
+            <button id="reload-tasks-button">RELOAD ALL TASKS</button>
+        </div>
+        <div class="scrolling-frame" id="tasks-frame">
+            <div class="task-item">
+                <div class="task-header">ID</div>
+                <div class="task-header">Task</div>
+                <div class="task-header">Status</div>
+            </div> 
+
+        </div>
+
+    </main>
+    <script src="/static/scripts/list.js"></script>
+</body>
+</html>

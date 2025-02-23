@@ -10,6 +10,7 @@ pub async fn normalize_trailing_slash( req: Request<Body>, next: Next ) -> Respo
      */
     
     let path = req.uri().path().to_string();
+    println!("{}", path);
     if path == "/" {
         next.run(req).await
     } else if path.ends_with('/') {

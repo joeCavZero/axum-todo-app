@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "includes/head.html" %}
+<body>
+    
+    {% include "includes/header.html" %}
+    <main>
+        <h2>ADD TASK</h2>
+        <div id="add-task-form" class="task-form">
+            <label for="task-title">Title:</label>
+            <input type="text" id="task-title" name="title" required>
+            <label for="task-content">Content:</label>
+            <input type="text" id="task-content" name="content" required>
+            <button id="send-task-button">ADD TASK</button>
+        </div>
+        <script src="/static/scripts/send.js"></script>
+    </main>
+    
+</body>
+</html>

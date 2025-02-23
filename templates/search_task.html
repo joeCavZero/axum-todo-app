@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "includes/head.html" %}
+<body>
+    
+    {% include "includes/header.html" %}
+    <main>
+        <h2>SEARCH TASK</h2>
+        <div id="search-task-form" class="task-form">
+            <label for="task-id">ID:</label>
+            <input type="number" id="task-id" name="id" required>
+            <button id="search-task-button">SEARCH TASK</button>
+        </div>
+        <div id="search-task-result"></div>
+        <script src="/static/scripts/search.js"></script>        
+    </main>
+    
+</body>
+</html>

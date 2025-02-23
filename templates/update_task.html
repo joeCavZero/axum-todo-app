@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "includes/head.html" %}
+<body>
+    
+    {% include "includes/header.html" %}
+    <main>
+        <h2>UPDATE TASK</h2>
+        <div id="update-task-form" class="task-form">
+            <label for="task-id">ID:</label>
+            <input type="number" id="task-id" name="id" required>
+            <label for="task-title">Title:</label>
+            <input type="text" id="task-title" name="title" placeholder="Write empty to keep the same">
+            <label for="task-content">Content:</label>
+            <input type="text" id="task-content" name="content" placeholder="Write empty to keep the same">
+            <label for="task-completed">Completed:</label>
+            <input type="checkbox" id="task-completed" name="completed" placeholder="Write empty to keep the same">
+            <button id="update-task-button">UPDATE TASK</button>
+        </div>
+        <script src="/static/scripts/update.js"></script>
+    </main>
+    
+</body>
+</html>
